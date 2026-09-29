@@ -40,7 +40,7 @@ It covers:
 4. Split validation and class distribution checks
 5. Saving the final patient ID lists for reproducibility
 
-### `brain_ct_xai.ipynb`
+### `brain_ct_reliability.ipynb`
 
 The main notebook covers:
 
@@ -92,7 +92,7 @@ Run the notebooks with:
 ```bash
 jupyter notebook patients_splitting.ipynb
 jupyter notebook sensitivity_improvement_experiments.ipynb
-jupyter notebook brain_ct_xai.ipynb
+jupyter notebook brain_ct_reliability.ipynb
 jupyter notebook diffusion_exploration.ipynb
 ```
 
