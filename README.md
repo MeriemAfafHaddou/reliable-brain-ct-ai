@@ -22,24 +22,16 @@ The project uses ResNet-18 transfer learning and patient-level data splitting.
 - Multi-window CT classification using brain and bone windows
 - Segmentation-guided learning for ICH classification and localization
 - Latent-space exploration using a convolutional autoencoder
-- Preliminary exploration of diffusion-based image generation
 
 ## Notebooks
 
-### `patients_splitting.ipynb`
-Constructs and validates patient-level development and held-out test sets.
+* `patients_splitting.ipynb`: Constructs and validates patient-level development and held-out test sets.
 
-### `brain_ct_reliability.ipynb`
-Covers classification, evaluation, calibration, uncertainty estimation, Grad-CAM, and autoencoder-based latent-space exploration.
+* `brain_ct_reliability.ipynb`: Covers classification, evaluation, calibration, uncertainty estimation, Grad-CAM, and autoencoder-based latent-space exploration.
 
-### `sensitivity_improvement_experiments.ipynb`
-Investigates training strategies to improve ICH sensitivity, including intensity augmentation, oversampling, class-weighted loss, and weight-decay selection.
+* `sensitivity_improvement_experiments.ipynb`: Investigates training strategies to improve ICH sensitivity, including intensity augmentation, oversampling, class-weighted loss, and weight-decay selection.
 
-### `brain_ct_multichannel_segmentation.ipynb`
-Explores brain and bone CT windows alongside hemorrhage segmentation masks as localization supervision. The experiments investigate whether additional image information and explicit localization supervision can help detect hemorrhages missed by the classifier.
-
-### `diffusion_ct_generation_exploration.ipynb`
-Provides an initial exploration of diffusion-based generative modeling for CT imaging.
+* `brain_ct_multichannel_segmentation.ipynb`: Explores brain and bone CT windows alongside hemorrhage segmentation masks as localization supervision. The experiments investigate whether additional image information and explicit localization supervision can help detect hemorrhages missed by the classifier.
 
 ## Dataset
 
