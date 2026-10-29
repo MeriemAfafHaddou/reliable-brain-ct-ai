@@ -1,8 +1,8 @@
-# Investigating Model Reliability and Behavior in Brain CT Classification
+# Investigating Model Reliability in Brain CT Classification
 
 This project investigates machine learning model behavior beyond classification performance, using intracranial hemorrhage (ICH) detection in brain CT images as a case study.
 
-The experiments explore classification performance, probability calibration, uncertainty estimation, explainability, segmentation-guided learning, and latent-space exploration. The broader motivation is to understand what model predictions reveal about model behavior and where their limitations remain.
+The work explores classification performance, probability calibration, uncertainty estimation, explainability, and segmentation-guided learning. A recurring question is whether model predictions and confidence estimates reflect reliable behavior, particularly when the model makes mistakes.
 
 ## Project Overview
 
@@ -19,7 +19,8 @@ The project uses ResNet-18 transfer learning and patient-level data splitting.
 - Probability calibration using the Brier score and Expected Calibration Error (ECE)
 - Uncertainty estimation using Monte Carlo Dropout
 - Grad-CAM visual explanations
-- Multichannel CT classification with segmentation information
+- Multi-window CT classification using brain and bone windows
+- Segmentation-guided learning for ICH classification and localization
 - Latent-space exploration using a convolutional autoencoder
 - Preliminary exploration of diffusion-based image generation
 
@@ -35,7 +36,7 @@ Covers classification, evaluation, calibration, uncertainty estimation, Grad-CAM
 Investigates training strategies to improve ICH sensitivity, including intensity augmentation, oversampling, class-weighted loss, and weight-decay selection.
 
 ### `brain_ct_multichannel_segmentation.ipynb`
-Explores multichannel CT classification and the use of segmentation information.
+Explores brain and bone CT windows alongside hemorrhage segmentation masks as localization supervision. The experiments investigate whether additional image information and explicit localization supervision can help detect hemorrhages missed by the classifier.
 
 ### `diffusion_ct_generation_exploration.ipynb`
 Provides an initial exploration of diffusion-based generative modeling for CT imaging.
@@ -54,12 +55,14 @@ pip install -r requirements.txt
 
 Run the notebooks using Jupyter. Ensure the dataset paths are configured for your environment.
 
-## Challenges
+## Challenges and Findings
 
 - Improving ICH sensitivity while maintaining specificity.
-- Evaluating probability calibration and uncertainty estimates.
-- Investigating the regions highlighted by visual explanations.
-- Exploring latent representations while preserving relevant image features.
+- Investigating incorrect predictions with high confidence and low Monte Carlo Dropout variability.
+- Examining model attention using Grad-CAM and comparing it with available hemorrhage segmentation masks.
+- Exploring whether multiple CT windows and localization supervision can help address missed hemorrhages.
+
+The experiments highlight that classification performance, confidence estimates, and visual explanations provide different perspectives on model behavior. None alone fully explains why a model fails.
 
 ## Presentation
 
@@ -67,4 +70,4 @@ The project presentation is available in the [`presentation/`](presentation/) di
 
 ## Future Work
 
-Potential directions include evaluating generalization on independent datasets, investigating model behavior under distribution shift, quantitatively evaluating explanations, and exploring more effective approaches to counterfactual generation.
+Potential directions include evaluating generalization on independent datasets, investigating model behavior under distribution shift, comparing single-window and multi-window models, and further evaluating uncertainty estimates and explanations. Additional work could explore segmentation-based evaluation and counterfactual generation.
